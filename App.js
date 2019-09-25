@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import OnBoardingScreen from './components/onBoardingComponent';
 
 export default function App() {
@@ -7,12 +6,3 @@ export default function App() {
     <OnBoardingScreen />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

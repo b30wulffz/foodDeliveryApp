@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
+import { Ionicons } from '@expo/vector-icons';
+
+import Auth from './authComponent';
 
 const slides = [
   {
-    key: "somethun",
+    key: "slide_1",
     title: "Easy Food Delivery",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut. ",
-    image: require("../assets/images/onBoard1.png"),
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
+    image: require("../assets/images/onBoard1.png")
     // backgroundColor: "#59b2ab"
   },
   {
-    key: "somethun-dos",
-    title: "Title 2",
-    text: "Other cool stuff",
-    image: require("../assets/images/onBoard2.jpg"),
+    key: "slide_2",
+    title: "Easy Food Delivery",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
+    image: require("../assets/images/onBoard2.jpg")
     // backgroundColor: "#febe29"
   },
   {
-    key: "somethun1",
-    title: "Rocket guy",
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    image: require("../assets/images/onBoard3.jpg"),
+    key: "slide_3",
+    title: "Easy Food Delivery",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
+    image: require("../assets/images/onBoard3.jpg")
     // backgroundColor: "#22bcb5"
   }
 ];
@@ -43,19 +46,68 @@ const App = () => {
     setShowRealApp(true);
   };
 
+  const nextButton = () => {
+    return (
+      // <TouchableOpacity onPress={this.onPress}>
+        <View style={styles.nextButton}>
+          <Text>Next!!</Text>
+        </View>
+      // </TouchableOpacity>
+    );
+  };
+
+  const _renderNextButton = () => {
+    return (
+      <View style={styles.buttonCircle}>
+        <Ionicons
+          name="md-arrow-round-forward"
+          color="rgba(0, 0, 0, .6)"
+          size={25}
+          // style={{ backgroundColor: 'rgba(255, 247, 0, 0.2)', }}
+        />
+      </View>
+    );
+  };
+  const _renderDoneButton = () => {
+    return (
+      <View style={styles.buttonCircle}>
+        <Ionicons
+          name="md-checkmark"
+          color="rgba(0, 0, 0, .9)"
+          size={25}
+          // style={{ backgroundColor: 'grey' }}
+        />
+      </View>
+    );
+  };
+  const _renderSkipButton = () => {
+    return (
+      <View style={styles.buttonSquare}>
+        <Text>
+          Skip
+        </Text>
+      </View>
+    );
+  };
+
   if (showRealApp) {
     return (
-      <View>
-        <Text>hi</Text>
-      </View>
+      <Auth />
     );
   } else {
     return (
       <AppIntroSlider
         renderItem={this._renderItem}
         slides={slides}
+        activeDotStyle={{backgroundColor: 'rgba(0,0,0, .9)', marginHorizontal: 10}}	
+        dotStyle={{backgroundColor: 'rgba(0,0,0,.2)', marginHorizontal: 10}}
+        paginationStyle={{alignItems: 'center'}}
+        showSkipButton={true}
+        renderDoneButton={_renderDoneButton}
+        renderNextButton={_renderNextButton}
+        renderSkipButton={_renderSkipButton}
         onDone={this._onDone}
-        showSkipButton
+        onSkip={this._onDone}
       />
     );
   }
@@ -88,5 +140,21 @@ const styles = StyleSheet.create({
     width: "90%",
     height: 250,
     resizeMode: "contain"
-  }
+  },
+  buttonCircle: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .1)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonSquare: {
+    width: 60,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .1)',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
