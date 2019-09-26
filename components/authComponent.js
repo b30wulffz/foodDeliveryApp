@@ -5,8 +5,12 @@ import {
   Text,
   Button,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Platform
 } from "react-native";
+
+import Faq from "./faq";
+// import Faq from './faq2';
 
 const SignUp = () => {
   return (
@@ -31,7 +35,7 @@ const SignUp = () => {
   );
 };
 
-const LogIn = () => {
+const LogIn = props => {
   return (
     <>
       <View style={styles.inputOuter}>
@@ -45,7 +49,10 @@ const LogIn = () => {
           <Text>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.authButton}>
+      <TouchableOpacity
+        style={styles.authButton}
+        onPress={() => props.setSuccess(true)}
+      >
         <Text style={{ fontSize: 15 }}>Login</Text>
       </TouchableOpacity>
     </>
@@ -54,57 +61,62 @@ const LogIn = () => {
 
 const Auth = () => {
   const [isLogin, setLogin] = useState(true);
-  //   const [isSignup, setSignup] = useState(false);
   const loginBackground = isLogin ? styles.activeButton : {};
   const signupBackground = isLogin ? {} : styles.activeButton;
 
-  return (
-    <View style={styles.outerCover}>
-      <View
-        style={{
-          borderWidth: 2,
-          borderRadius: 20,
-          flexDirection: "row",
-          borderColor: "rgb(221, 244, 253)"
-        }}
-      >
-        <TouchableOpacity
-          style={[
-            {
-              paddingHorizontal: 35,
-              paddingVertical: 8,
-              borderTopLeftRadius: 20,
-              borderBottomLeftRadius: 20
-            },
-            signupBackground
-          ]}
-          onPress={() => {
-            setLogin(false);
-          }}
-        >
-          <Text style={{ fontSize: 15 }}>Sign up</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            {
-              paddingHorizontal: 35,
-              paddingVertical: 8,
-              borderTopRightRadius: 20,
-              borderBottomRightRadius: 20
-            },
-            loginBackground
-          ]}
-          onPress={() => {
-            setLogin(true);
-          }}
-        >
-          <Text style={{ fontSize: 15 }}>Login</Text>
-        </TouchableOpacity>
-      </View>
+  const [success, setSuccess] = useState(false);
 
-      {isLogin ? <LogIn /> : <SignUp />}
-    </View>
-  );
+  if (!success) {
+    return (
+      <View style={styles.outerCover}>
+        <View
+          style={{
+            borderWidth: 2,
+            borderRadius: 20,
+            flexDirection: "row",
+            borderColor: "rgb(221, 244, 253)"
+          }}
+        >
+          <TouchableOpacity
+            style={[
+              {
+                paddingHorizontal: 35,
+                paddingVertical: 8,
+                borderTopLeftRadius: 20,
+                borderBottomLeftRadius: 20
+              },
+              signupBackground
+            ]}
+            onPress={() => {
+              setLogin(false);
+            }}
+          >
+            <Text style={{ fontSize: 15 }}>Sign up</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              {
+                paddingHorizontal: 35,
+                paddingVertical: 8,
+                borderTopRightRadius: 20,
+                borderBottomRightRadius: 20
+              },
+              loginBackground
+            ]}
+            onPress={() => {
+              setLogin(true);
+            }}
+          >
+            <Text style={{ fontSize: 15 }}>Login</Text>
+          </TouchableOpacity>
+        </View>
+
+        {isLogin ? <LogIn setSuccess={setSuccess} /> : <SignUp />}
+      </View>
+    );
+  } else {
+    return <Faq />;
+  }
 };
 
 const styles = StyleSheet.create({
@@ -116,7 +128,8 @@ const styles = StyleSheet.create({
   inputOuter: {
     width: "70%",
     justifyContent: "space-around",
-    alignItems: "center"
+    alignItems: "center",
+    // paddingTop: Platform.OS === 'android' ? 25 : 0
   },
   input: {
     height: 60,
@@ -137,9 +150,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 50
   }
-  //   nonActiveButton: {
-
-  //   }
 });
 
 export default Auth;
