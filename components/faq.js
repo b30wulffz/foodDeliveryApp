@@ -3,14 +3,9 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   TouchableOpacity,
-  TextInput,
-  Platform,
   Image,
-  Dimensions
 } from "react-native";
-import Constants from "expo-constants";
 
 import DateTime from './faq_yes';
 
@@ -23,7 +18,8 @@ const Faq = () => {
           style={{
             fontSize: 20,
             fontWeight: "600",
-            color: "rgb(53, 56, 57)",
+            // color: "rgb(53, 56, 57)",
+            color: "rgb(145, 145, 145)",
             top: 50
           }}
         >
@@ -41,7 +37,7 @@ const Faq = () => {
 
         <Image
           style={styles.bottomImg}
-          source={require("../assets/images/onBoard3.jpg")}
+          source={require("../assets/images/faq.jpg")}
         />
       </View>
     );
@@ -63,26 +59,18 @@ const styles = StyleSheet.create({
   buttons: {
     paddingHorizontal: 70,
     paddingVertical: 10,
-    // width: 300,
-    // borderWidth: 1,
-    // borderColor: "rgba(255, 255, 255, 1)",
     backgroundColor: "rgba(221, 244, 253, 1)",
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 5,
-    // marginHorizontal: 100,
-    // shadowRadius: 100
     shadowOffset: { width: 10, height: 10 },
     shadowColor: "black",
     shadowOpacity: 1.0,
     elevation: 2
   },
   bottomImg: {
-    // position: 'absolute',
-    // bottom: 0,
     width: "80%",
-    // height: Dimensions.get('window').height,
     height: "30%",
     resizeMode: "contain"
   }

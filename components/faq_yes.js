@@ -1,6 +1,5 @@
-import * as React from "react";
+import React from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import Constants from "expo-constants";
 
 function App() {
   const days = [
@@ -25,7 +24,7 @@ function App() {
         <View>
           {days.map((day, index) => {
             return (
-              <TouchableOpacity key={index} >
+              <TouchableOpacity key={index}>
                 <Text style={styles.button}>{day}</Text>
               </TouchableOpacity>
             );

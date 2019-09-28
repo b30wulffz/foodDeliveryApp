@@ -8,24 +8,21 @@ import Auth from './authComponent';
 const slides = [
   {
     key: "slide_1",
-    title: "Easy Food Delivery",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
-    image: require("../assets/images/onBoard1.png")
-    // backgroundColor: "#59b2ab"
+    title: "Plan your food ahead",
+    text: "Be overfed by planning your food ahead.",
+    image: require("../assets/images/onBoard1.jpg")
   },
   {
     key: "slide_2",
-    title: "Easy Food Delivery",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
-    image: require("../assets/images/onBoard2.jpg")
-    // backgroundColor: "#febe29"
+    title: "Balanced diet",
+    text: "Balance your life with our balanced diet.",
+    image: require("../assets/images/onBoard2.png")
   },
   {
     key: "slide_3",
-    title: "Easy Food Delivery",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
-    image: require("../assets/images/onBoard3.jpg")
-    // backgroundColor: "#22bcb5"
+    title: "Notifications",
+    text: "Neglecting your health due to busy schedule?\nWe are here to notify your hunger.",
+    image: require("../assets/images/onBoard3.png")
   }
 ];
 
@@ -42,17 +39,14 @@ const App = () => {
     );
   };
   _onDone = () => {
-    // this.setState({ showRealApp: true });
     setShowRealApp(true);
   };
 
   const nextButton = () => {
     return (
-      // <TouchableOpacity onPress={this.onPress}>
         <View style={styles.nextButton}>
           <Text>Next!!</Text>
         </View>
-      // </TouchableOpacity>
     );
   };
 
@@ -63,7 +57,6 @@ const App = () => {
           name="md-arrow-round-forward"
           color="rgba(0, 0, 0, .6)"
           size={25}
-          // style={{ backgroundColor: 'rgba(255, 247, 0, 0.2)', }}
         />
       </View>
     );
@@ -75,7 +68,6 @@ const App = () => {
           name="md-checkmark"
           color="rgba(0, 0, 0, .9)"
           size={25}
-          // style={{ backgroundColor: 'grey' }}
         />
       </View>
     );
@@ -118,7 +110,6 @@ export default App;
 const styles = StyleSheet.create({
   slide: {
     flex: 1,
-    //   paddingTop: (Platform.OS) === 'ios' ? 20 : 0,
     alignItems: "center",
     justifyContent: "center",
     padding: 20

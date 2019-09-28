@@ -3,14 +3,11 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   TouchableOpacity,
-  TextInput,
-  Platform
+  TextInput
 } from "react-native";
 
 import Faq from "./faq";
-// import Faq from './faq2';
 
 const SignUp = () => {
   return (
@@ -129,7 +126,6 @@ const styles = StyleSheet.create({
     width: "70%",
     justifyContent: "space-around",
     alignItems: "center",
-    // paddingTop: Platform.OS === 'android' ? 25 : 0
   },
   input: {
     height: 60,
@@ -148,7 +144,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(221, 244, 253)",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 50
+    borderRadius: 50,
+    elevation: 2
   }
 });
 
