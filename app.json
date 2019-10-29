@@ -1,15 +1,20 @@
 {
   "expo": {
-    "name": "Food Delivery App",
-    "slug": "foodDeliveryApp",
+    "name": "Foodie",
+    "description": "A food ordering app prototype",
+    "slug": "Foodie",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [
-      "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
+    "android": {
+      "package": "com.wulffz.foodie",
+      "versionCode": 1,
+      "permissions": [],
+      "icon":"./assets/icon.png"
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
