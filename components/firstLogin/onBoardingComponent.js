@@ -10,24 +10,23 @@ const slides = [
     key: "slide_1",
     title: "Plan your food ahead",
     text: "Be overfed by planning your food ahead.",
-    image: require("../assets/images/onBoard1.jpg")
+    image: require("../../assets/images/onBoard1.jpg")
   },
   {
     key: "slide_2",
     title: "Balanced diet",
     text: "Balance your life with our balanced diet.",
-    image: require("../assets/images/onBoard2.png")
+    image: require("../../assets/images/onBoard2.png")
   },
   {
     key: "slide_3",
     title: "Notifications",
     text: "Neglecting your health due to busy schedule?\nWe are here to notify your hunger.",
-    image: require("../assets/images/onBoard3.png")
+    image: require("../../assets/images/onBoard3.png")
   }
 ];
 
-const App = () => {
-  const [showRealApp, setShowRealApp] = useState(false);
+const App = (props) => {
 
   _renderItem = ({ item }) => {
     return (
@@ -38,17 +37,18 @@ const App = () => {
       </View>
     );
   };
+  
   _onDone = () => {
-    setShowRealApp(true);
+    props.navigation.navigate('Auth');
   };
 
-  const nextButton = () => {
-    return (
-        <View style={styles.nextButton}>
-          <Text>Next!!</Text>
-        </View>
-    );
-  };
+  // const nextButton = () => {
+  //   return (
+  //       <View style={styles.nextButton}>
+  //         <Text>Next!!</Text>
+  //       </View>
+  //   );
+  // };
 
   const _renderNextButton = () => {
     return (
@@ -82,11 +82,11 @@ const App = () => {
     );
   };
 
-  if (showRealApp) {
-    return (
-      <Auth />
-    );
-  } else {
+  // if (showRealApp) {
+  //   return (
+  //     <Auth />
+  //   );
+  // } else {
     return (
       <AppIntroSlider
         renderItem={this._renderItem}
@@ -102,7 +102,7 @@ const App = () => {
         onSkip={this._onDone}
       />
     );
-  }
+  // }
 };
 
 export default App;

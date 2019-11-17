@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  AsyncStorage,
+  ActivityIndicator
 } from "react-native";
 
 import Faq from "./faq";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
+
+import Home from "../home/home";
 
 const SignUp = () => {
   return (
@@ -33,14 +38,30 @@ const SignUp = () => {
 };
 
 const LogIn = props => {
+  
+  function handleEmChange(event){
+    // props.data.uEmail.setEmail(event.target.value);
+  }
+  
+  function handlePwChange(event){
+    // props.data.uPass.setPass(event.target.value);
+  }
+  
   return (
     <>
       <View style={styles.inputOuter}>
-        <TextInput placeholder="Email Id" style={styles.input} />
+        <TextInput
+          placeholder="Email Id"
+          // value={props.data.uEmail.email}
+          style={styles.input}
+          // onChange={handleEmChange}
+        />
         <TextInput
           placeholder="Password"
           secureTextEntry={true}
           style={styles.input}
+          // value={props.data.uPass.pass}
+          // onChange={handlePwChange}
         />
         <TouchableOpacity style={{ alignItems: "flex-end", width: "100%" }}>
           <Text>Forgot Password?</Text>
@@ -48,7 +69,9 @@ const LogIn = props => {
       </View>
       <TouchableOpacity
         style={styles.authButton}
-        onPress={() => props.setSuccess(true)}
+        onPress={() => props.navigation.navigate(Home)}
+        // onPress={() => props.setSuccess(true)}
+        
       >
         <Text style={{ fontSize: 15 }}>Login</Text>
       </TouchableOpacity>
@@ -56,7 +79,7 @@ const LogIn = props => {
   );
 };
 
-const Auth = () => {
+const Auth = props => {
   const [isLogin, setLogin] = useState(true);
   const loginBackground = isLogin ? styles.activeButton : {};
   const signupBackground = isLogin ? {} : styles.activeButton;
@@ -108,7 +131,7 @@ const Auth = () => {
           </TouchableOpacity>
         </View>
 
-        {isLogin ? <LogIn setSuccess={setSuccess} /> : <SignUp />}
+        {isLogin ? <LogIn setSuccess={setSuccess} data={props} /> : <SignUp />}
       </View>
     );
   } else {
@@ -125,7 +148,7 @@ const styles = StyleSheet.create({
   inputOuter: {
     width: "70%",
     justifyContent: "space-around",
-    alignItems: "center",
+    alignItems: "center"
   },
   input: {
     height: 60,
@@ -149,4 +172,51 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Auth;
+// export default Auth;
+
+// class Logic extends React.Component {
+  // const [email, setEmail] = useState("");
+  // const [pass, setPass] = useState("");
+
+  // _bootstrapAsync = async () => {
+  //   const userToken = await AsyncStorage.getItem("userToken");
+  //   if (userToken) {
+  //     props.navigation.navigate(Home);
+  //   } else {
+  //     props.navigation.navigate(Auth);
+  //     // props.navigation.navigate(Auth, {
+  //     //   uEmail: { email, setEmail },
+  //     //   uPass: { pass, setPass }
+  //     // });
+  //   }
+  //   // (userToken ? Home : Auth, {uEmail: {email, setEmail}});
+  // };
+
+  // useEffect(()=>_bootstrapAsync(), []); 
+
+//   constructor(props){
+//     super(props);
+//     props.navigation.navigate(Auth);    
+//   }
+
+//   render(){
+//     return (
+//       <View>
+//         <ActivityIndicator />
+//       </View>
+//     );
+//   }
+// };
+
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      // Route: Logic,
+      Auth: Auth,
+      Home: Home
+    },
+    {
+      initialRouteName: "Auth"
+    }
+  )
+);

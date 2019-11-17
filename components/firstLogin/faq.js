@@ -37,7 +37,7 @@ const Faq = () => {
 
         <Image
           style={styles.bottomImg}
-          source={require("../assets/images/faq.jpg")}
+          source={require("../../assets/images/faq.jpg")}
         />
       </View>
     );
