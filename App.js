@@ -1,17 +1,10 @@
-import React from "react";
-import OnBoardingScreen from "./components/onBoardingComponent";
-import Constants from 'expo-constants';
-import {View} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import HomeNavigator from "./navigation/HomeNavigator";
 
 export default function App() {
   return (
-    <View
-      style={{
-        paddingTop: Constants.statusBarHeight,
-        flex: 1
-      }}
-    >
-      <OnBoardingScreen />
-    </View>
+    <HomeNavigator />
   );
 }
