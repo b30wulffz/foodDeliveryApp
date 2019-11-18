@@ -5,7 +5,8 @@ import {
   View,
   Button,
   FlatList,
-  ScrollView
+  ScrollView,
+  TextInput
 } from "react-native";
 import { SearchBar } from "react-native-elements";
 
@@ -13,7 +14,7 @@ import { RESTAURANTS } from "../data/restaurantData";
 import RestaurantTile from "../components/RestaurantTile";
 
 const RestaurantsScreen = props => {
-  const [x, setX] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   const renderGridItem = itemData => {
     return (
@@ -26,7 +27,6 @@ const RestaurantsScreen = props => {
         ratings={itemData.item.ratings}
         time={itemData.item.time}
         onSelect={() => {
-          console.log(props.navigation);
           props.navigation.navigate({
             routeName: "RestaurantMeals",
             params: {
@@ -40,9 +40,9 @@ const RestaurantsScreen = props => {
   };
 
   return (
-    <View>
+    <View style={{ height: "100%" }}>
       <View>
-        <SearchBar
+        {/* <SearchBar
           searchIcon={{ size: 24 }}
           onChangeText={text => setX(text)}
           onClear={text => setX("")}
@@ -59,14 +59,22 @@ const RestaurantsScreen = props => {
           }}
           inputContainerStyle={{ backgroundColor: "white", padding: 0}}
           inputStyle={{fontSize: 10}}
+        /> */}
+        {/* <TextInput
+          placeholder="Search for restaurant, dish"
+          value={searchText}
+          onChangeText={text => setSearchText(text)}
+          style={styles.searchBox}
+        /> */}
+      </View>
+      <View style={styles.listData}>
+        <FlatList
+          keyExtractor={(item, index) => item.id}
+          data={RESTAURANTS}
+          renderItem={renderGridItem}
+          numColumns={2}
         />
       </View>
-      <FlatList
-        keyExtractor={(item, index) => item.id}
-        data={RESTAURANTS}
-        renderItem={renderGridItem}
-        numColumns={2}
-      />
     </View>
 
     //     {/* <RestaurantTile
@@ -84,12 +92,23 @@ const RestaurantsScreen = props => {
 };
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    flex: 1,
+    width: '100%'
+  },
   container: {
     flex: 1,
     // backgroundColor: "#f00",
     width: "100%",
     justifyContent: "center",
     margin: 10
+  },
+  searchBox: {
+    height: 50,
+    width: "60%"
+  },
+  listData: {
+    padding: 10
   }
   // scrollContainer: {
   //   flex: 1,
