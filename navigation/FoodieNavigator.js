@@ -33,7 +33,7 @@ const FoodieNavigator = createStackNavigator(
         backgroundColor: Colors.primary
       },
       headerTitleStyle: {
-        color: Colors.secondary,
+        color: Colors.secondary
       }
     }
   }

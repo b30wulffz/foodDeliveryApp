@@ -1,10 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
 
-import HomeNavigator from "./navigation/HomeNavigator";
+import MainNavigator from "./navigation/MainNavigator";
 
 export default function App() {
-  return (
-    <HomeNavigator />
-  );
+  return <MainNavigator />;
 }

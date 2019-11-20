@@ -94,7 +94,7 @@ const RestaurantsScreen = props => {
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    width: '100%'
+    width: "100%"
   },
   container: {
     flex: 1,

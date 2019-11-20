@@ -1,11 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
-import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-// import FoodieScreen from "../screens/FoodieScreen";
-import FoodieNavigator from './FoodieNavigator';
+import FoodieNavigator from "./FoodieNavigator";
 import PlansScreen from "../screens/PlansScreen";
 import AccountScreen from "../screens/AccountScreen";
 import CartScreen from "../screens/CartScreen";
@@ -17,7 +14,7 @@ const homeNavigator = createBottomTabNavigator(
     Foodie: {
       screen: FoodieNavigator,
       navigationOptions: {
-        title: 'Foodie',
+        title: "Foodie",
         tabBarIcon: ({ tintColor }) => {
           return (
             <MaterialCommunityIcons name="food" size={25} color={tintColor} />
@@ -28,7 +25,7 @@ const homeNavigator = createBottomTabNavigator(
     Plans: {
       screen: PlansScreen,
       navigationOptions: {
-        title: 'Plans',
+        title: "Plans",
         tabBarIcon: ({ tintColor }) => {
           return (
             <MaterialCommunityIcons
@@ -43,7 +40,7 @@ const homeNavigator = createBottomTabNavigator(
     Account: {
       screen: AccountScreen,
       navigationOptions: {
-        title: 'Account',
+        title: "Account",
         tabBarIcon: ({ tintColor }) => {
           return (
             <MaterialCommunityIcons
@@ -58,7 +55,7 @@ const homeNavigator = createBottomTabNavigator(
     CartScreen: {
       screen: CartScreen,
       navigationOptions: {
-        title: 'Cart',
+        title: "Cart",
         tabBarIcon: ({ tintColor }) => {
           return (
             <MaterialCommunityIcons name="cart" size={25} color={tintColor} />
@@ -80,4 +77,4 @@ const homeNavigator = createBottomTabNavigator(
   }
 );
 
-export default createAppContainer(homeNavigator);
+export default homeNavigator;
