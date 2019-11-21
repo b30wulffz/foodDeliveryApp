@@ -1,47 +1,47 @@
-import { createMaterialTopTabNavigator } from "react-navigation-tabs";
+import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 
-import RestaurantsScreen from "../screens/RestaurantsScreen";
-import HomeMadeFoodScreen from "../screens/HomeMadeFoodScreen";
-import BalancedDietScreen from "../screens/BalancedDietScreen";
+import RestaurantsScreen from '../screens/RestaurantsScreen';
+import HomeMadeFoodScreen from '../screens/HomeMadeFoodScreen';
+import BalancedDietScreen from '../screens/BalancedDietScreen';
 
-import Colors from "../constants/Colors";
+import Colors from '../constants/Colors';
 
 const FoodieSubSection = createMaterialTopTabNavigator(
   {
     Restaurants: {
       screen: RestaurantsScreen,
       navigationOptions: {
-        title: "Restaurants"
-      }
+        title: 'Restaurants',
+      },
     },
     HomeMade: {
       screen: HomeMadeFoodScreen,
       navigationOptions: {
-        title: "Homemade food"
-      }
+        title: 'Homemade food',
+      },
     },
     BalancedDiet: {
       screen: BalancedDietScreen,
       navigationOptions: {
-        title: "Balanced diet"
-      }
-    }
+        title: 'Balanced diet',
+      },
+    },
   },
   {
     tabBarOptions: {
       style: {
-        backgroundColor: "#ffffff"
+        backgroundColor: '#ffffff',
       },
       labelStyle: {
         fontSize: 13,
-        color: Colors.secondary
+        color: Colors.secondary,
       },
       upperCaseLabel: false,
       indicatorStyle: {
-        backgroundColor: Colors.primary
-      }
-    }
-  }
+        backgroundColor: Colors.primary,
+      },
+    },
+  },
 );
 
 export default FoodieSubSection;

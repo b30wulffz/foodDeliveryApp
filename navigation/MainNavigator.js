@@ -1,12 +1,12 @@
-import React, { useDebugValue } from "react";
-import { createSwitchNavigator, createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import {createSwitchNavigator, createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-import OnBoardingScreen from "../screens/OnBoardingScreen";
-import HomeNavigator from "./HomeNavigator";
-import AuthScreen from "../screens/AuthScreen";
-import FaqScreen from "../screens/FaqScreen";
-import PlansScreen from "../screens/FaqYesScreen";
+import OnBoardingScreen from '../screens/OnBoardingScreen';
+import HomeNavigator from './HomeNavigator';
+import AuthScreen from '../screens/AuthScreen';
+import FaqScreen from '../screens/FaqScreen';
+import PlansScreen from '../screens/FaqYesScreen';
+import SplashScreen from './SplashScreen';
 
 const FaqNavigator = createStackNavigator({
   Faq: {
@@ -14,31 +14,34 @@ const FaqNavigator = createStackNavigator({
     navigationOptions: {
       headerStyle: {
         elevation: 0,
-        shadowOpacity: 0
-      }
-    }
+        shadowOpacity: 0,
+      },
+    },
   },
   Plans: {
     screen: PlansScreen,
     navigationOptions: {
-      header: null
-    }
-  }
+      header: null,
+    },
+  },
 });
 
 const MainNavigator = createSwitchNavigator({
+  Splash: {
+    screen: SplashScreen,
+  },
   OnBoarding: {
-    screen: OnBoardingScreen
+    screen: OnBoardingScreen,
   },
   Auth: {
-    screen: AuthScreen
+    screen: AuthScreen,
   },
   Faq: {
-    screen: FaqNavigator
+    screen: FaqNavigator,
   },
   Home: {
-    screen: HomeNavigator
-  }
+    screen: HomeNavigator,
+  },
 });
 
 export default createAppContainer(MainNavigator);

@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const BalancedDietScreen = props => {
   return (
@@ -16,8 +16,6 @@ const BalancedDietScreen = props => {
             <Text>Reset</Text>
           </View>
         </View>
-
-        {/* <FlatList /> */}
       </View>
 
       <View>
@@ -30,10 +28,10 @@ const BalancedDietScreen = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default BalancedDietScreen;
