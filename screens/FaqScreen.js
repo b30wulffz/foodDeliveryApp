@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flex: 1,
+    width: '100%',
   },
   buttons: {
     paddingHorizontal: 70,
@@ -51,14 +52,14 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   bottomImg: {
-    width: '80%',
-    height: '30%',
+    height: '50%',
+    width: '95%',
     resizeMode: 'contain',
   },
   textStyle: {
     fontSize: 20,
     fontWeight: '600',
     color: 'rgb(145, 145, 145)',
-    top: 50,
+    top: 40,
   },
 });
