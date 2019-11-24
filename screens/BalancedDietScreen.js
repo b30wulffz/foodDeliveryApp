@@ -73,11 +73,17 @@ class BalancedDiet extends PureComponent {
       transform: [{translateY: this.state.scroll}],
     };
     this.updateSelected = this.updateSelected.bind(this);
+    this.clearSelected = this.clearSelected.bind(this);
   }
 
   updateSelected(index, selected) {
     const select = [...this.state.selected];
     select[index] = selected;
+    this.setState({...this.state, selected: select});
+  }
+
+  clearSelected() {
+    const select = this.state.selected.map(() => false);
     this.setState({...this.state, selected: select});
   }
 
@@ -109,7 +115,12 @@ class BalancedDiet extends PureComponent {
           </View>
 
           <View style={styles.resetText}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                this.state.names.map((name, index) => {
+                  this.clearSelected();
+                });
+              }}>
               <Text style={styles.font15}>Reset</Text>
             </TouchableOpacity>
           </View>
