@@ -17,7 +17,6 @@ const App = props => {
       <TouchableOpacity style={styles.reset}>
         <Text>Reset</Text>
       </TouchableOpacity>
-
       <View style={styles.subcontainer}>
         <Text style={styles.title}>Plan your weekly food</Text>
 
@@ -31,8 +30,8 @@ const App = props => {
           })}
         </View>
       </View>
-
-      <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+      {/* <TouchableOpacity onPress={() => props.navigation.navigate('Home')}> */}
+      <TouchableOpacity onPress={() => {}}>
         <Text style={styles.sbutton}>Done</Text>
       </TouchableOpacity>
     </View>

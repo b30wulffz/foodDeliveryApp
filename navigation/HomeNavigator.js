@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import FoodieNavigator from './FoodieNavigator';
-import PlansScreen from '../screens/PlansScreen';
+import PlansNavigator from './PlansNavigator';
 import AccountScreen from '../screens/AccountScreen';
 import CartScreen from '../screens/CartScreen';
 
@@ -21,7 +21,7 @@ const homeNavigator = createBottomTabNavigator(
       },
     },
     Plans: {
-      screen: PlansScreen,
+      screen: PlansNavigator,
       navigationOptions: {
         title: 'Plans',
         tabBarIcon: ({tintColor}) => {
