@@ -1,5 +1,6 @@
 export default {
-  primary: '#E0F4FF',
+  primary: '#e0f4ff',
   secondary: '#707070',
-  active: '#2979FF',
+  active: '#2979ff',
+  darkTint: '#bbe5fc',
 };
