@@ -24,6 +24,9 @@ const FoodieNavigator = createStackNavigator(
     },
     RestaurantMeals: {
       screen: RestaurantMeals,
+      navigationOptions: {
+        header: null,
+      },
     },
   },
   {
