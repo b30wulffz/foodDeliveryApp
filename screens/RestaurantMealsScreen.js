@@ -39,9 +39,13 @@ function updateCostState(cost, costFunc, cart) {
 }
 
 import {RESTAURANTS} from '../data/restaurantData';
+import {HOMEMADEFOOD} from '../data/homemadeFoodData';
 
 const RestaurantMealsScreen = props => {
-  const DATA = RESTAURANTS.find(
+  const MODELDATA = props.navigation.getParam('isRestaurantMeal')
+    ? RESTAURANTS
+    : HOMEMADEFOOD;
+  const DATA = MODELDATA.find(
     item => item.id === props.navigation.getParam('restaurantId'),
   );
   const MEALS = DATA.meals;
@@ -104,7 +108,10 @@ const RestaurantMealsScreen = props => {
           />
           <View style={styles.bannerHead}>
             <Text style={styles.fontHead}>
-              Restaurent can deliver in {DATA.time} mins
+              {props.navigation.getParam('isRestaurantMeal')
+                ? 'Restaurant'
+                : 'This home service'}{' '}
+              can deliver in {DATA.time} mins
             </Text>
             <Text style={styles.fontHead}>
               <Icon name="star" /> {DATA.ratings}
@@ -274,6 +281,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e0f4ff',
     flexDirection: 'row',
     alignItems: 'center',
+    overflow: 'hidden',
   },
   cartText: {
     height: '100%',

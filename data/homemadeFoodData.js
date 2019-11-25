@@ -1,22 +1,22 @@
 import Restaurant from '../model/restaurant';
 import Meals from '../model/meals';
 
-export const RESTAURANTS = [
+export const HOMEMADEFOOD = [
   new Restaurant(
     'dedf406d-13fb-4b8a-8667-7dc0dfeabe00',
-    'Steuber LLC',
+    'Home Service No 1',
     'Oth generalized epilepsy, intractable',
     '4.4',
     '35',
     '20',
-    'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
+    'https://www.themealdb.com/images/media/meals/xxpqsy1511452222.jpg',
     [
       new Meals(
         'ae3f45ee-3ada-48f8-9052-7d0b75f8e9be',
         'Rath-Schulist',
         160,
         false,
-        'https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg',
+        'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg',
         20,
       ),
       new Meals(
@@ -24,7 +24,7 @@ export const RESTAURANTS = [
         'Kirlin-Bernier',
         150,
         true,
-        'https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg',
+        'https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg',
         30,
       ),
       new Meals(
@@ -32,7 +32,7 @@ export const RESTAURANTS = [
         'Toy-Jacobi',
         200,
         false,
-        'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
+        'https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg',
         25,
       ),
       new Meals(
@@ -40,7 +40,7 @@ export const RESTAURANTS = [
         'Maggio-Leannon',
         190,
         true,
-        'https://www.themealdb.com/images/media/meals/usuqtp1511385394.jpg',
+        'https://www.themealdb.com/images/media/meals/1550442508.jpg',
         15,
       ),
       new Meals(
@@ -48,26 +48,26 @@ export const RESTAURANTS = [
         'Koch-Daniel',
         230,
         true,
-        'https://www.themealdb.com/images/media/meals/1525874812.jpg',
+        'https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg',
         20,
       ),
     ],
   ),
   new Restaurant(
     '865d3114-b439-486e-9745-5a0911394f13',
-    'Littel, Friesen and Dietrich',
+    'Home Service No 2',
     'Unsp superficial injury of unsp upper arm, init encnt',
     '4.6',
     '45',
     '35',
-    'https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg',
+    'https://www.themealdb.com/images/media/meals/yyrrxr1511816289.jpg',
     [
       new Meals(
         'ae3f45ee-3ada-48f8-9052-7d0b75f8e9be',
         'Rath-Schulist',
         160,
         false,
-        'https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg',
+        'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg',
         20,
       ),
       new Meals(
@@ -75,7 +75,7 @@ export const RESTAURANTS = [
         'Kirlin-Bernier',
         150,
         true,
-        'https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg',
+        'https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg',
         30,
       ),
       new Meals(
@@ -83,7 +83,7 @@ export const RESTAURANTS = [
         'Toy-Jacobi',
         200,
         false,
-        'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
+        'https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg',
         25,
       ),
       new Meals(
@@ -91,7 +91,7 @@ export const RESTAURANTS = [
         'Maggio-Leannon',
         190,
         true,
-        'https://www.themealdb.com/images/media/meals/usuqtp1511385394.jpg',
+        'https://www.themealdb.com/images/media/meals/1550442508.jpg',
         15,
       ),
       new Meals(
@@ -99,26 +99,26 @@ export const RESTAURANTS = [
         'Koch-Daniel',
         230,
         true,
-        'https://www.themealdb.com/images/media/meals/1525874812.jpg',
+        'https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg',
         20,
       ),
     ],
   ),
   new Restaurant(
     '4f0abeb1-903c-496c-a77e-8896ff3de60a',
-    'Macejkovic-DuBuque',
+    'Home Service No 3',
     'Unspecified superficial keratitis, left eye',
     '3.6',
     '15',
     '18',
-    'https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg',
+    'https://www.themealdb.com/images/media/meals/x2fw9e1560460636.jpg',
     [
       new Meals(
         'ae3f45ee-3ada-48f8-9052-7d0b75f8e9be',
         'Rath-Schulist',
         160,
         false,
-        'https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg',
+        'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg',
         20,
       ),
       new Meals(
@@ -126,7 +126,7 @@ export const RESTAURANTS = [
         'Kirlin-Bernier',
         150,
         true,
-        'https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg',
+        'https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg',
         30,
       ),
       new Meals(
@@ -134,7 +134,7 @@ export const RESTAURANTS = [
         'Toy-Jacobi',
         200,
         false,
-        'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
+        'https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg',
         25,
       ),
       new Meals(
@@ -142,7 +142,7 @@ export const RESTAURANTS = [
         'Maggio-Leannon',
         190,
         true,
-        'https://www.themealdb.com/images/media/meals/usuqtp1511385394.jpg',
+        'https://www.themealdb.com/images/media/meals/1550442508.jpg',
         15,
       ),
       new Meals(
@@ -150,26 +150,26 @@ export const RESTAURANTS = [
         'Koch-Daniel',
         230,
         true,
-        'https://www.themealdb.com/images/media/meals/1525874812.jpg',
+        'https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg',
         20,
       ),
     ],
   ),
   new Restaurant(
     '6fdab564-d950-4050-b413-92125b047d50',
-    'Stracke-Lynch',
+    'Home Service No 4',
     'Premature ROM, unsp time betw rupture and onset of',
     '4.2',
     '55',
     '25',
-    'https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg',
+    'https://www.themealdb.com/images/media/meals/rqtxvr1511792990.jpg',
     [
       new Meals(
         'ae3f45ee-3ada-48f8-9052-7d0b75f8e9be',
         'Rath-Schulist',
         160,
         false,
-        'https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg',
+        'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg',
         20,
       ),
       new Meals(
@@ -177,7 +177,7 @@ export const RESTAURANTS = [
         'Kirlin-Bernier',
         150,
         true,
-        'https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg',
+        'https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg',
         30,
       ),
       new Meals(
@@ -185,7 +185,7 @@ export const RESTAURANTS = [
         'Toy-Jacobi',
         200,
         false,
-        'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
+        'https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg',
         25,
       ),
       new Meals(
@@ -193,7 +193,7 @@ export const RESTAURANTS = [
         'Maggio-Leannon',
         190,
         true,
-        'https://www.themealdb.com/images/media/meals/usuqtp1511385394.jpg',
+        'https://www.themealdb.com/images/media/meals/1550442508.jpg',
         15,
       ),
       new Meals(
@@ -201,26 +201,26 @@ export const RESTAURANTS = [
         'Koch-Daniel',
         230,
         true,
-        'https://www.themealdb.com/images/media/meals/1525874812.jpg',
+        'https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg',
         20,
       ),
     ],
   ),
   new Restaurant(
     'c8b7b458-a1f1-4787-89a9-f24b7d7bbafa',
-    'Luettgen, Casper and Cassin',
+    'Home Service No 5',
     'Unilateral osteoarthritis result',
     '4.3',
     '15',
     '10',
-    'https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg',
+    'https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg',
     [
       new Meals(
         'ae3f45ee-3ada-48f8-9052-7d0b75f8e9be',
         'Rath-Schulist',
         160,
         false,
-        'https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg',
+        'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg',
         20,
       ),
       new Meals(
@@ -228,7 +228,7 @@ export const RESTAURANTS = [
         'Kirlin-Bernier',
         150,
         true,
-        'https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg',
+        'https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg',
         30,
       ),
       new Meals(
@@ -236,7 +236,7 @@ export const RESTAURANTS = [
         'Toy-Jacobi',
         200,
         false,
-        'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
+        'https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg',
         25,
       ),
       new Meals(
@@ -244,7 +244,7 @@ export const RESTAURANTS = [
         'Maggio-Leannon',
         190,
         true,
-        'https://www.themealdb.com/images/media/meals/usuqtp1511385394.jpg',
+        'https://www.themealdb.com/images/media/meals/1550442508.jpg',
         15,
       ),
       new Meals(
@@ -252,26 +252,26 @@ export const RESTAURANTS = [
         'Koch-Daniel',
         230,
         true,
-        'https://www.themealdb.com/images/media/meals/1525874812.jpg',
+        'https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg',
         20,
       ),
     ],
   ),
   new Restaurant(
     'ca4da2b4-9303-45bb-8f79-36bee3d43e52',
-    'Jaskolski LLC',
+    'Home Service No 6',
     'Cyst of ora serrata, unspecifie',
     '3.7',
     '40',
     '45',
-    'https://www.themealdb.com/images/media/meals/wssvvs1511785879.jpg',
+    'https://www.themealdb.com/images/media/meals/wxuvuv1511299147.jpg',
     [
       new Meals(
         'ae3f45ee-3ada-48f8-9052-7d0b75f8e9be',
         'Rath-Schulist',
         160,
         false,
-        'https://www.themealdb.com/images/media/meals/hyarod1565090529.jpg',
+        'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg',
         20,
       ),
       new Meals(
@@ -279,7 +279,7 @@ export const RESTAURANTS = [
         'Kirlin-Bernier',
         150,
         true,
-        'https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg',
+        'https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg',
         30,
       ),
       new Meals(
@@ -287,7 +287,7 @@ export const RESTAURANTS = [
         'Toy-Jacobi',
         200,
         false,
-        'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
+        'https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg',
         25,
       ),
       new Meals(
@@ -295,7 +295,7 @@ export const RESTAURANTS = [
         'Maggio-Leannon',
         190,
         true,
-        'https://www.themealdb.com/images/media/meals/usuqtp1511385394.jpg',
+        'https://www.themealdb.com/images/media/meals/1550442508.jpg',
         15,
       ),
       new Meals(
@@ -303,7 +303,7 @@ export const RESTAURANTS = [
         'Koch-Daniel',
         230,
         true,
-        'https://www.themealdb.com/images/media/meals/1525874812.jpg',
+        'https://www.themealdb.com/images/media/meals/xqrwyr1511133646.jpg',
         20,
       ),
     ],

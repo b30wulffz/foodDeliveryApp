@@ -20,6 +20,7 @@ const RestaurantsScreen = props => {
             routeName: 'RestaurantMeals',
             params: {
               restaurantId: itemData.item.id,
+              isRestaurantMeal: true,
             },
           });
         }}

@@ -9,7 +9,7 @@ const Meal = ({update, data, add, remove}) => {
     <View style={styles.cover}>
       <View style={styles.image}>
         <Image source={{uri: data.img}} style={styles.imageImage} />
-        <Text style={styles.imageText}>{data.discount} % off</Text>
+        <Text style={styles.imageText}>{data.discount}% off</Text>
       </View>
       <View style={styles.textContent}>
         <Text style={styles.name}>{data.dishName}</Text>
