@@ -18,6 +18,9 @@ const PlansNavigator = createStackNavigator(
     },
     UpComingNotifications: {
       screen: UpComingNotificationsScreen,
+      navigationOptions: {
+        title: 'Upcoming Notifications',
+      },
     },
     PlanHistory: {
       screen: PlanHistoryScreen,
