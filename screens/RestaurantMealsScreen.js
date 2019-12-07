@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
+  Modal,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
@@ -40,6 +41,7 @@ function updateCostState(cost, costFunc, cart) {
 
 import {RESTAURANTS} from '../data/restaurantData';
 import {HOMEMADEFOOD} from '../data/homemadeFoodData';
+import CustomCheckBox from '../components/checkbox';
 
 const RestaurantMealsScreen = props => {
   const MODELDATA = props.navigation.getParam('isRestaurantMeal')
@@ -74,7 +76,16 @@ const RestaurantMealsScreen = props => {
     );
   };
 
-  const [menuDimension] = useState(new Animated.ValueXY(0, 0));
+  const menuChoice = [
+    'Main Course',
+    'Breads',
+    'Curry',
+    'Biryani',
+    'Desserts',
+    'Soup',
+    'Starters',
+  ];
+
   const [menuOpen, menuState] = useState(false);
 
   return (
@@ -120,25 +131,6 @@ const RestaurantMealsScreen = props => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              if (!menuOpen) {
-                Animated.timing(menuDimension, {
-                  toValue: {
-                    x: 150,
-                    y: 280,
-                  },
-                  easing: Easing.ease,
-                  duration: 700,
-                }).start();
-              } else {
-                Animated.timing(menuDimension, {
-                  toValue: {
-                    x: 0,
-                    y: 0,
-                  },
-                  easing: Easing.ease,
-                  duration: 700,
-                }).start();
-              }
               menuState(!menuOpen);
             }}>
             <Text>Menu</Text>
@@ -150,12 +142,29 @@ const RestaurantMealsScreen = props => {
           renderItem={renderGridItem}
           numColumns={1}
         />
-        <Animated.View
-          style={[
-            styles.menu,
-            {height: menuDimension.y, width: menuDimension.x},
-          ]}
-        />
+        <Modal transparent={true} visible={menuOpen} animationType="fade">
+          <View style={styles.menuBack}>
+            <View style={styles.menu}>
+              <Text style={styles.menuHead}>Menu</Text>
+              {menuChoice.map((choice, index) => {
+                return (
+                  <View style={styles.menuItem} key={index}>
+                    <Text style={styles.menuItemText}>{choice}</Text>
+                    <CustomCheckBox size={26} />
+                  </View>
+                );
+              })}
+              <TouchableOpacity
+                style={styles.menuButton}
+                onPress={() => {
+                  menuState(false);
+                }}>
+                <Text>Apply</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
         <Animated.View
           style={[
             styles.cart,
@@ -199,10 +208,12 @@ const styles = StyleSheet.create({
   },
   header: {
     height: '10%',
-    paddingVertical: '2%',
+    paddingVertical: '4%',
     backgroundColor: '#e0f4ff',
     flexDirection: 'row',
     justifyContent: 'flex-start',
+    alignItems: 'center',
+    textAlignVertical: 'center',
   },
   headerIcon: {
     color: '#000',
@@ -210,7 +221,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#000',
-    padding: 5,
+    paddingHorizontal: 5,
     fontSize: 20,
     fontWeight: '600',
   },
@@ -259,13 +270,47 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
   },
+  menuBack: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0,0,0,0.7)',
+  },
+  menuItem: {
+    width: '95%',
+    marginVertical: 9,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  menuHead: {
+    fontSize: 18,
+    textAlign: 'center',
+    width: '80%',
+    marginVertical: 1,
+  },
+  menuItemText: {
+    color: 'rgba(0,0,0,0.6)',
+    textAlignVertical: 'center',
+    fontSize: 16,
+  },
+  menuButton: {
+    borderRadius: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 50,
+    elevation: 3,
+    shadowColor: 'rgba(0,0,0,0.6)',
+    shadowRadius: 3,
+    shadowOffset: {x: 3, y: 3},
+    backgroundColor: 'rgb(221, 244, 253)',
+  },
   menu: {
+    padding: 10,
     backgroundColor: '#fff',
-    overflow: 'hidden',
-    borderBottomLeftRadius: 30,
+    width: 200,
+    borderRadius: 20,
     position: 'absolute',
-    top: '35%',
-    right: '0%',
+    top: '25%',
+    right: '4%',
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#5a5a5a',

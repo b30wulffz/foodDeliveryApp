@@ -5,7 +5,10 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+  Modal,
 } from 'react-native';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const SignUp = () => {
   return (
@@ -31,6 +34,8 @@ const SignUp = () => {
 };
 
 const LogIn = props => {
+  const [modalVisible, changeModalVisible] = useState(false);
+
   return (
     <>
       <View style={styles.inputOuter}>
@@ -40,10 +45,43 @@ const LogIn = props => {
           secureTextEntry={true}
           style={styles.input}
         />
-        <TouchableOpacity style={styles.floatEnd}>
+        <TouchableOpacity
+          style={styles.floatEnd}
+          onPress={() => {
+            changeModalVisible(true);
+          }}>
           <Text>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
+      <Modal animationType="fade" transparent visible={modalVisible}>
+        <View style={styles.modalContainer}>
+          <View style={styles.modal}>
+            <View style={styles.innerHeader}>
+              <Text style={styles.innerText}>Forgot Password</Text>
+              <Icon
+                size={25}
+                style={styles.innerIcon}
+                name="close"
+                onPress={() => {
+                  changeModalVisible(false);
+                }}
+              />
+            </View>
+            <TextInput
+              placeholder="Your Email"
+              style={styles.innerInput}
+              placeholderTextColor="#000"
+            />
+            <TouchableOpacity
+              style={styles.innerButton}
+              onPress={() => {
+                changeModalVisible(false);
+              }}>
+              <Text style={styles.font15}>Done</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
       <TouchableOpacity
         style={styles.authButton}
         onPress={() => props.navigation.navigate('Faq')}>
@@ -144,6 +182,54 @@ const styles = StyleSheet.create({
   floatEnd: {
     alignItems: 'flex-end',
     width: '100%',
+  },
+  modalContainer: {
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%',
+  },
+  innerButton: {
+    paddingHorizontal: 90,
+    paddingVertical: 8,
+    backgroundColor: 'rgb(221, 244, 253)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    elevation: 2,
+  },
+  innerInput: {
+    height: 35,
+    width: '90%',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(0,0,0,0.4)',
+    marginVertical: 5,
+  },
+  innerHeader: {
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  innerText: {
+    width: '70%',
+    fontSize: 18,
+    textAlignVertical: 'center',
+    color: 'rgba(0,0,0,0.7)',
+  },
+  innerIcon: {
+    textAlign: 'right',
+    textAlignVertical: 'center',
+    color: 'rgba(0,0,0,0.7)',
+  },
+  modal: {
+    marginTop: 150,
+    borderRadius: 10,
+    height: 180,
+    width: '80%',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    paddingHorizontal: '5%',
+    justifyContent: 'space-evenly',
   },
 });
 

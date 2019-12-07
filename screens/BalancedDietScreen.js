@@ -99,16 +99,16 @@ class BalancedDiet extends PureComponent {
         <View style={styles.upperButtons}>
           <View style={styles.switchStyle}>
             <TouchableOpacity
-              style={[styles.aVegButtonStyle, vegBackground]}
+              style={[styles.aVegButtonStyle, nonvegBackground]}
               onPress={() => {
-                this.setState({...this.state, veg: true});
+                this.setState({...this.state, veg: false});
               }}>
               <Text style={styles.font15}>Non-Veg</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.aVegButtonStyle, nonvegBackground]}
+              style={[styles.aVegButtonStyle, vegBackground]}
               onPress={() => {
-                this.setState({...this.state, veg: false});
+                this.setState({...this.state, veg: true});
               }}>
               <Text style={styles.font15}>Veg</Text>
             </TouchableOpacity>

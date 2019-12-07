@@ -8,6 +8,7 @@ import FoodieSubSectionNavigator from './FoodieSubSectionNavigator';
 import RestaurantMeals from '../screens/RestaurantMealsScreen';
 
 import Colors from '../constants/Colors';
+import SearchBox from '../screens/searchbox';
 
 const FoodieNavigator = createStackNavigator(
   {
@@ -26,6 +27,13 @@ const FoodieNavigator = createStackNavigator(
       screen: RestaurantMeals,
       navigationOptions: {
         header: null,
+      },
+    },
+    SearchBox: {
+      screen: SearchBox,
+      navigationOptions: {
+        headerTitle: 'Foodie',
+        headerTitleStyle: {textAlign: 'center'},
       },
     },
   },
