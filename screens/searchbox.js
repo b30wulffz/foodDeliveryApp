@@ -9,8 +9,6 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Dishes, Restaurants} from '../data/names';
 
-import App from '../components/select';
-
 const ListData = ({name, list, back}) => {
   if (list.length === 0) {
     return <></>;
@@ -82,7 +80,6 @@ const SearchBox = props => {
         })}
         back={back}
       />
-      <App name={'Hello'} visible />
     </View>
   );
 };

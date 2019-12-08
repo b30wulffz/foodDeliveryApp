@@ -5,9 +5,20 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 
+import Select from '../components/select';
+
 const DayData = ({day, state, updateState}) => {
-  const backStyle = {backgroundColor: state ? 'rgb(221, 244, 253)' : '#fff'};
+  const backStyle = {
+    backgroundColor:
+      state.time && state.location && state.food
+        ? 'rgb(221, 244, 253)'
+        : '#fff',
+  };
   var thisRef;
+
+  console.log(state);
+
+  const [on, setOn] = useState(false);
 
   const updateRef = ref => {
     thisRef = ref;
@@ -26,7 +37,7 @@ const DayData = ({day, state, updateState}) => {
               size={24}
               onPress={() => {
                 thisRef.close();
-                updateState && updateState(false);
+                updateState && updateState({time: '', location: '', food: ''});
               }}
             />
           </View>
@@ -36,10 +47,19 @@ const DayData = ({day, state, updateState}) => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          updateState(true);
+          setOn(true);
         }}>
         <Text style={styles.buttonText}>{day}</Text>
       </TouchableOpacity>
+      <Select
+        name={day}
+        visible={on}
+        update={data => {
+          setOn(false);
+          updateState(data);
+        }}
+        values={state}
+      />
     </Swipeable>
   );
 };
@@ -55,7 +75,15 @@ const App = props => {
     'Saturday',
   ];
 
-  const initialDataState = [false, false, false, false, false, false, false];
+  const initialDataState = [
+    {time: '', location: '', food: ''},
+    {time: '', location: '', food: ''},
+    {time: '', location: '', food: ''},
+    {time: '', location: '', food: ''},
+    {time: '', location: '', food: ''},
+    {time: '', location: '', food: ''},
+    {time: '', location: '', food: ''},
+  ];
 
   const [dataState, updateState] = useState(initialDataState);
   const [reset, updateReset] = useState(false);

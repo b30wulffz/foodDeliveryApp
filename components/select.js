@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {View, Text, TouchableHighlight, Modal, StyleSheet} from 'react-native';
 
@@ -8,10 +8,16 @@ import Location from './location';
 import Time from './time';
 import Food from './cuisines';
 
-const App = ({visible, name, update}) => {
-  const [time, setTime] = useState('');
-  const [food, setFood] = useState('');
-  const [location, setLocation] = useState('');
+const App = ({visible, name, update, values}) => {
+  const [time, setTime] = useState(values.time);
+  const [food, setFood] = useState(values.food);
+  const [location, setLocation] = useState(values.location);
+
+  useEffect(() => {
+    setFood(values.food);
+    setLocation(values.location);
+    setTime(values.time);
+  }, [values]);
 
   const [vTime, setVTime] = useState(false);
   const [vFood, setVFood] = useState(false);
@@ -26,7 +32,7 @@ const App = ({visible, name, update}) => {
               name="close"
               size={25}
               onPress={() => {
-                update(false);
+                update({food: food, location: location, time: time});
               }}
             />
           </View>
@@ -68,7 +74,7 @@ const App = ({visible, name, update}) => {
           <TouchableHighlight
             style={styles.aButton}
             onPress={() => {
-              update(false);
+              update({food: food, location: location, time: time});
             }}
             underlayColor="transparent">
             <Text style={styles.font18}>Done</Text>
