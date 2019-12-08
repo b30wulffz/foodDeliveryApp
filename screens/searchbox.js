@@ -13,6 +13,9 @@ const ListData = ({name, list, back}) => {
   if (list.length === 0) {
     return <></>;
   } else {
+    if (list.length > 5) {
+      list = list.slice(0, 5);
+    }
     return (
       <View style={styles.listContainer}>
         <Text style={styles.headingStyle}>{name}</Text>
