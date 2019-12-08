@@ -28,6 +28,7 @@ const Meal = ({update, data, add, remove}) => {
       </View>
       <View style={styles.counter}>
         <TouchableHighlight
+          underlayColor="transparent"
           style={styles.counterButtons}
           onPress={() => {
             if (count > 0) {
@@ -43,6 +44,7 @@ const Meal = ({update, data, add, remove}) => {
         </TouchableHighlight>
         <Text style={styles.counterText}>{count}</Text>
         <TouchableHighlight
+          underlayColor="transparent"
           style={styles.counterButtons}
           onPress={() => {
             updateCount(count + 1);
