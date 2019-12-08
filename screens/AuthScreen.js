@@ -6,27 +6,54 @@ import {
   TouchableOpacity,
   TextInput,
   Modal,
+  Alert,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import User from '../model/user';
+
 const SignUp = () => {
+  const [email, updateEmail] = useState('');
+  const [password, updatePassword] = useState('');
+  const [cpass, updateCPassword] = useState('');
   return (
     <>
       <View style={styles.inputOuter}>
-        <TextInput placeholder="Email Id" style={styles.input} />
         <TextInput
+          value={email}
+          placeholder="Email Id"
+          style={styles.input}
+          onChangeText={updateEmail}
+        />
+        <TextInput
+          value={password}
+          onChangeText={updatePassword}
           placeholder="Password"
           secureTextEntry={true}
           style={styles.input}
         />
         <TextInput
+          value={cpass}
+          onChangeText={updateCPassword}
           placeholder="Confirm Password"
           secureTextEntry={true}
           style={styles.input}
         />
       </View>
-      <TouchableOpacity style={styles.authButton}>
+      <TouchableOpacity
+        style={styles.authButton}
+        onPress={() => {
+          if (email === '' || password === '') {
+            Alert.alert('Error', 'Email or Password cannot be empty.');
+          } else if (cpass !== password) {
+            Alert.alert('Error', 'Passwords do not match.');
+          } else if (User.addUser(email, password)) {
+            Alert.alert('Success', 'New User Added.');
+          } else {
+            Alert.alert('Wrong Email', 'User already exists.');
+          }
+        }}>
         <Text style={styles.font15}>Sign Up</Text>
       </TouchableOpacity>
     </>
@@ -36,11 +63,21 @@ const SignUp = () => {
 const LogIn = props => {
   const [modalVisible, changeModalVisible] = useState(false);
 
+  const [email, updateEmail] = useState('');
+  const [password, updatePassword] = useState('');
+
   return (
     <>
       <View style={styles.inputOuter}>
-        <TextInput placeholder="Email Id" style={styles.input} />
         <TextInput
+          placeholder="Email Id"
+          style={styles.input}
+          value={email}
+          onChangeText={updateEmail}
+        />
+        <TextInput
+          value={password}
+          onChangeText={updatePassword}
           placeholder="Password"
           secureTextEntry={true}
           style={styles.input}
@@ -84,7 +121,13 @@ const LogIn = props => {
       </Modal>
       <TouchableOpacity
         style={styles.authButton}
-        onPress={() => props.navigation.navigate('Faq')}>
+        onPress={() => {
+          if (User.verifyUser(email, password)) {
+            props.navigation.navigate('Faq');
+          } else {
+            Alert.alert('Error', 'Wrong Email or Password.');
+          }
+        }}>
         <Text style={styles.font15}>Login</Text>
       </TouchableOpacity>
     </>
